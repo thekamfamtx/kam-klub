@@ -11,14 +11,20 @@ let members = [];
 let queue = [];
 let index = 0;
 
+// LOAD MEMBERS FROM GITHUB JSON FILE
 async function loadMembers() {
-  const res = await fetch(MEMBERS_URL);
-  members = await res.json();
+  try {
+    const res = await fetch(MEMBERS_URL);
+    members = await res.json();
 
-  shuffleMembers();
-  showNext();
+    shuffleMembers();
+    showNext();
+  } catch (error) {
+    console.error("Error loading members.json:", error);
+  }
 }
 
+// SHUFFLE MEMBERS (RANDOM ORDER EACH CYCLE)
 function shuffleMembers() {
   queue = [...members];
 
@@ -30,7 +36,10 @@ function shuffleMembers() {
   index = 0;
 }
 
+// SHOW NEXT MEMBER
 function showNext() {
+  if (queue.length === 0) return;
+
   if (index >= queue.length) {
     shuffleMembers();
   }
@@ -43,23 +52,27 @@ function showNext() {
   }, 8000);
 }
 
+// DISPLAY MEMBER IN CIRCLE + LEVEL
 function showMember(member) {
-  document.getElementById("messageScreen").classList.add("hidden");
-
-  document.getElementById("memberName").innerText = member.name;
+  document.getElementById("circleText").innerText = member.name;
   document.getElementById("memberLevel").innerText = member.level;
 }
 
+// SHOW RANDOM THANK YOU MESSAGE BETWEEN MEMBERS
 function showMessage() {
   const msg = messages[Math.floor(Math.random() * messages.length)];
 
-  const screen = document.getElementById("messageScreen");
-  screen.innerText = msg;
-  screen.classList.remove("hidden");
+  const circle = document.getElementById("circleText");
+  const level = document.getElementById("memberLevel");
+
+  // temporarily clear member display
+  circle.innerText = msg;
+  level.innerText = "";
 
   setTimeout(() => {
     showNext();
   }, 3000);
 }
 
+// START EVERYTHING
 loadMembers();
