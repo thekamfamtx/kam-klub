@@ -12,7 +12,7 @@ body {
 }
 
 /* =========================
-   BACKGROUND LOGO (SUBTLE)
+   BACKGROUND LOGO (WATERMARK)
 ========================= */
 
 body::before {
@@ -31,7 +31,7 @@ body::before {
 }
 
 /* =========================
-   MAIN LAYOUT
+   LAYOUT
 ========================= */
 
 .container {
@@ -41,8 +41,8 @@ body::before {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
   text-align: center;
+  position: relative;
   z-index: 1;
 }
 
@@ -54,70 +54,65 @@ body::before {
   font-size: 24px;
   color: gold;
   margin-bottom: 25px;
-  text-shadow: 0 0 10px rgba(0,0,0,0.6);
   letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
 
 /* =========================
-   MAIN CIRCLE (NOW NAME FOCUS)
+   CIRCLE (MAIN FOCUS)
 ========================= */
 
 .photo-frame {
-  width: 260px;
-  height: 260px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   border: 4px solid rgba(255, 215, 0, 0.5);
   background: rgba(0,0,0,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  overflow: hidden;
 }
 
-/* NAME INSIDE CIRCLE (NEW FOCUS) */
+/* =========================
+   NAME INSIDE CIRCLE (WRAPS + FITS)
+========================= */
+
 .circle-text {
-  font-size: 34px;
+  font-size: 42px;
   font-weight: 900;
   color: white;
   text-align: center;
   text-shadow: 0 0 15px rgba(0,0,0,0.9);
-  padding: 10px;
+
+  width: 85%;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+
+  /* auto scaling for long names */
+  font-size: clamp(18px, 4vw, 42px);
 }
 
 /* =========================
-   MEMBER LEVEL (UNDER CIRCLE)
+   LEVEL TEXT
 ========================= */
 
 .level {
   font-size: 22px;
   color: gold;
-  margin-top: 10px;
+  margin-top: 12px;
   text-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
 
 /* =========================
-   MESSAGE SCREEN
-========================= */
-
-.message {
-  position: absolute;
-  font-size: 44px;
-  font-weight: 900;
-  color: gold;
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-  text-shadow: 0 0 20px rgba(0,0,0,0.8);
-  z-index: 5;
-}
-
-.hidden {
-  display: none;
-}
-
-/* =========================
-   TICKER (NOW SMALLER)
+   TICKER (SMALL + SUBTLE)
 ========================= */
 
 .ticker {
@@ -126,10 +121,10 @@ body::before {
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
-  background: rgba(0,0,0,0.6);
-  padding: 4px 0;            /* 👈 smaller */
-  font-size: 12px;          /* 👈 MUCH smaller */
-  color: rgba(255,255,255,0.8);
+  background: rgba(0,0,0,0.5);
+  padding: 3px 0;
+  font-size: 11px;
+  color: rgba(255,255,255,0.75);
   animation: tickerMove 18s linear infinite;
 }
 
