@@ -84,9 +84,10 @@ function showMessage() {
   const circle = document.getElementById("circleText");
   const level = document.getElementById("memberLevel");
 
-  // temporarily clear member display
   circle.innerText = msg;
   level.innerText = "";
+
+  autoSizeText(circle, msg);
 
   setTimeout(() => {
     showNext();
