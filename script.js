@@ -96,3 +96,21 @@ function showMessage() {
 
 // START EVERYTHING
 loadMembers();
+
+
+function autoSizeText(el, text) {
+  let length = text.length;
+
+  if (length <= 10) {
+    el.style.fontSize = "48px";
+  } 
+  else if (length <= 20) {
+    el.style.fontSize = "38px";
+  } 
+  else if (length <= 35) {
+    el.style.fontSize = "30px";
+  } 
+  else {
+    el.style.fontSize = "22px";
+  }
+}
