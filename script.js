@@ -4,7 +4,7 @@ const messages = [
   "THANK YOU KAM KLUB MEMBERS",
   "YOU GUYS MAKE THIS CHANNEL POSSIBLE",
   "WELCOME TO THE KAM KLUB FAMILY",
-  "WE APPRECIATE EVERY SINGLE MEMBER",
+  "WE APPRECIATE EVERY MEMBER",
   "CRUISE FAMILY FOREVER"
 ];
 
@@ -12,10 +12,10 @@ let members = [];
 let queue = [];
 let index = 0;
 
-// START APP
+// START
 loadMembers();
 
-// LOAD MEMBERS FROM GITHUB JSON
+// LOAD MEMBERS FROM GITHUB
 async function loadMembers() {
   try {
     const res = await fetch(MEMBERS_URL);
@@ -25,11 +25,11 @@ async function loadMembers() {
     showNextMember();
 
   } catch (err) {
-    console.error("Error loading members.json:", err);
+    console.error("Failed to load members:", err);
   }
 }
 
-// SHUFFLE MEMBERS EACH CYCLE
+// SHUFFLE ORDER EACH CYCLE
 function shuffleMembers() {
   queue = [...members];
 
@@ -52,48 +52,46 @@ function showNextMember() {
   const member = queue[index++];
   displayMember(member);
 
-  // show for 8 seconds
   setTimeout(showMessage, 8000);
 }
 
 // DISPLAY MEMBER
 function displayMember(member) {
-  const circle = document.getElementById("circleText");
-  const level = document.getElementById("memberLevel");
+  const nameEl = document.getElementById("circleText");
+  const levelEl = document.getElementById("memberLevel");
 
-  circle.innerText = member.name;
-  level.innerText = member.level;
+  nameEl.innerText = member.name;
+  levelEl.innerText = member.level;
 
-  autoSizeText(circle, member.name);
+  autoSizeText(nameEl, member.name);
 }
 
-// SHOW RANDOM MESSAGE BETWEEN MEMBERS
+// SHOW MESSAGE BETWEEN MEMBERS
 function showMessage() {
-  const circle = document.getElementById("circleText");
-  const level = document.getElementById("memberLevel");
+  const nameEl = document.getElementById("circleText");
+  const levelEl = document.getElementById("memberLevel");
 
   const msg = messages[Math.floor(Math.random() * messages.length)];
 
-  circle.innerText = msg;
-  level.innerText = "";
+  nameEl.innerText = msg;
+  levelEl.innerText = "";
 
-  autoSizeText(circle, msg);
+  autoSizeText(nameEl, msg);
 
-  // show message for 3 seconds then continue
   setTimeout(showNextMember, 3000);
 }
 
-// AUTO RESIZE TEXT (FIXES LONG NAMES / MESSAGES)
+// AUTO SIZE TEXT SO IT NEVER BREAKS CIRCLE
 function autoSizeText(el, text) {
-  const length = text.length;
+  const len = text.length;
 
-  if (length <= 10) {
+  if (len <= 10) {
     el.style.fontSize = "44px";
   } 
-  else if (length <= 18) {
+  else if (len <= 18) {
     el.style.fontSize = "36px";
   } 
-  else if (length <= 28) {
+  else if (len <= 28) {
     el.style.fontSize = "28px";
   } 
   else {
