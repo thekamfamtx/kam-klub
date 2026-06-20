@@ -80,7 +80,7 @@ html, body {
   width: 85%;
 
   font-weight: 900;
-  color: #ff2bd6; /* neon pink */
+  color: #ff3de5;
 
   text-align: center;
   line-height: 1.1;
@@ -90,13 +90,13 @@ html, body {
 
   font-size: 40px;
 
-  /* white outline + glow */
-  -webkit-text-stroke: 2px white;
+  /* STRONG WHITE OUTLINE = MAIN READABILITY */
+  -webkit-text-stroke: 3px rgba(255,255,255,0.95);
 
+  /* VERY SUBTLE GLOW (TONE IT WAY DOWN) */
   text-shadow:
-    0 0 6px #ff2bd6,
-    0 0 12px #ff2bd6,
-    0 0 20px rgba(0,0,0,0.8);
+    0 0 2px rgba(255, 61, 229, 0.35),
+    0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 /* =========================
