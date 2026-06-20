@@ -54,8 +54,27 @@ function showNext() {
 
 // DISPLAY MEMBER IN CIRCLE + LEVEL
 function showMember(member) {
-  document.getElementById("circleText").innerText = member.name;
-  document.getElementById("memberLevel").innerText = member.level;
+  const circle = document.getElementById("circleText");
+  const level = document.getElementById("memberLevel");
+
+  circle.innerText = member.name;
+  level.innerText = member.level;
+
+  // AUTO RESIZE BASED ON NAME LENGTH
+  let length = member.name.length;
+
+  if (length <= 10) {
+    circle.style.fontSize = "48px";
+  } 
+  else if (length <= 16) {
+    circle.style.fontSize = "38px";
+  } 
+  else if (length <= 22) {
+    circle.style.fontSize = "30px";
+  } 
+  else {
+    circle.style.fontSize = "24px";
+  }
 }
 
 // SHOW RANDOM THANK YOU MESSAGE BETWEEN MEMBERS
