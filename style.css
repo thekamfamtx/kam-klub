@@ -97,20 +97,4 @@ body {
   display: none;
 }
 
-/* TICKER */
-.ticker {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  background: rgba(0,0,0,0.7);
-  padding: 10px 0;
-  color: white;
-  animation: tickerMove 18s linear infinite;
-}
 
-@keyframes tickerMove {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
