@@ -1,18 +1,18 @@
 /* =========================
-   BASE STYLES
+   BASE
 ========================= */
 
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #001f3f, #b30000);
   font-family: Arial, sans-serif;
   color: white;
   overflow: hidden;
+  background: linear-gradient(135deg, #001a33, #990000);
 }
 
 /* =========================
-   MAIN CONTAINER
+   MAIN LAYOUT
 ========================= */
 
 .container {
@@ -22,97 +22,115 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   text-align: center;
 }
 
 /* =========================
-   LOGO AREA (TOP)
+   SUBTLE BACKGROUND LOGO
 ========================= */
 
-.logo-area {
+body::before {
+  content: "";
   position: absolute;
-  top: 20px;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: url("kam-klub-logo.png") no-repeat center;
+  background-size: contain;
+  opacity: 0.06;   /* 👈 VERY subtle watermark */
+  pointer-events: none;
+  z-index: 0;
 }
 
-.logo-placeholder {
-  font-size: 26px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border: 2px solid gold;
-  border-radius: 10px;
-  color: gold;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+/* make sure content sits above background logo */
+.container {
+  z-index: 1;
 }
 
 /* =========================
-   TITLE
+   REMOVE TOP LOGO AREA (NO LONGER USED)
+========================= */
+
+.logo-area,
+.logo-placeholder {
+  display: none;
+}
+
+/* =========================
+   MEMBER SPOTLIGHT TITLE
 ========================= */
 
 .title {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 26px;
   color: gold;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  letter-spacing: 2px;
 }
 
 /* =========================
-   CIRCLE LOGO / MEMBER FRAME
-========================= */
-
-.photo-frame {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  border: 5px solid gold;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-}
-
-/* THIS IS YOUR LOGO INSIDE THE CIRCLE */
-.member-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;   /* prevents stretching */
-  padding: 25px;         /* keeps logo off edges */
-  transform: translateZ(0);
-  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
-}
-
-/* =========================
-   TEXT STYLES
+   MAIN MEMBER TEXT (CENTER FOCUS)
 ========================= */
 
 .name {
-  font-size: 34px;
-  margin-top: 18px;
-  font-weight: bold;
-  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+  font-size: 48px;   /* BIG emphasis */
+  font-weight: 900;
+  margin-top: 20px;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0,0,0,0.8);
 }
 
 .level {
-  font-size: 20px;
+  font-size: 24px;
   color: gold;
-  margin-top: 5px;
-  text-shadow: 0 0 8px rgba(0,0,0,0.5);
+  margin-top: 10px;
+  text-shadow: 0 0 12px rgba(0,0,0,0.6);
 }
 
 /* =========================
-   MESSAGE SCREEN (TRANSITIONS)
+   OPTIONAL ICON CIRCLE (NOW SUBTLE OR EMPTY)
+========================= */
+
+.photo-frame {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 215, 0, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* If logo is inside circle (optional fallback) */
+.member-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.25;  /* 👈 very subtle if used */
+  padding: 30px;
+}
+
+/* =========================
+   MESSAGE SCREEN (BETWEEN MEMBERS)
 ========================= */
 
 .message {
   position: absolute;
-  font-size: 42px;
-  font-weight: bold;
+  font-size: 44px;
+  font-weight: 900;
   color: gold;
   text-align: center;
   width: 100%;
   padding: 20px;
-  text-shadow: 0 0 15px rgba(0,0,0,0.7);
+  text-shadow: 0 0 20px rgba(0,0,0,0.8);
+  z-index: 5;
 }
 
 .hidden {
