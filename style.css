@@ -12,6 +12,25 @@ body {
 }
 
 /* =========================
+   BACKGROUND LOGO (SUBTLE)
+========================= */
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 650px;
+  height: 650px;
+  transform: translate(-50%, -50%);
+  background: url("kam-klub-logo.png") no-repeat center;
+  background-size: contain;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================
    MAIN LAYOUT
 ========================= */
 
@@ -24,101 +43,61 @@ body {
   justify-content: center;
   position: relative;
   text-align: center;
-}
-
-/* =========================
-   SUBTLE BACKGROUND LOGO
-========================= */
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  height: 600px;
-  transform: translate(-50%, -50%);
-  background: url("kam-klub-logo.png") no-repeat center;
-  background-size: contain;
-  opacity: 0.06;   /* 👈 VERY subtle watermark */
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* make sure content sits above background logo */
-.container {
   z-index: 1;
 }
 
 /* =========================
-   REMOVE TOP LOGO AREA (NO LONGER USED)
-========================= */
-
-.logo-area,
-.logo-placeholder {
-  display: none;
-}
-
-/* =========================
-   MEMBER SPOTLIGHT TITLE
+   TITLE
 ========================= */
 
 .title {
-  font-size: 26px;
+  font-size: 24px;
   color: gold;
   margin-bottom: 25px;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
   letter-spacing: 2px;
 }
 
 /* =========================
-   MAIN MEMBER TEXT (CENTER FOCUS)
-========================= */
-
-.name {
-  font-size: 48px;   /* BIG emphasis */
-  font-weight: 900;
-  margin-top: 20px;
-  text-align: center;
-  text-shadow: 0 0 20px rgba(0,0,0,0.8);
-}
-
-.level {
-  font-size: 24px;
-  color: gold;
-  margin-top: 10px;
-  text-shadow: 0 0 12px rgba(0,0,0,0.6);
-}
-
-/* =========================
-   OPTIONAL ICON CIRCLE (NOW SUBTLE OR EMPTY)
+   MAIN CIRCLE (NOW NAME FOCUS)
 ========================= */
 
 .photo-frame {
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
-  border: 3px solid rgba(255, 215, 0, 0.4);
-  background: rgba(255, 255, 255, 0.03);
+  border: 4px solid rgba(255, 215, 0, 0.5);
+  background: rgba(0,0,0,0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
-/* If logo is inside circle (optional fallback) */
-.member-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0.25;  /* 👈 very subtle if used */
-  padding: 30px;
+/* NAME INSIDE CIRCLE (NEW FOCUS) */
+.circle-text {
+  font-size: 34px;
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(0,0,0,0.9);
+  padding: 10px;
 }
 
 /* =========================
-   MESSAGE SCREEN (BETWEEN MEMBERS)
+   MEMBER LEVEL (UNDER CIRCLE)
+========================= */
+
+.level {
+  font-size: 22px;
+  color: gold;
+  margin-top: 10px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+/* =========================
+   MESSAGE SCREEN
 ========================= */
 
 .message {
@@ -135,4 +114,26 @@ body::before {
 
 .hidden {
   display: none;
+}
+
+/* =========================
+   TICKER (NOW SMALLER)
+========================= */
+
+.ticker {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: rgba(0,0,0,0.6);
+  padding: 4px 0;            /* 👈 smaller */
+  font-size: 12px;          /* 👈 MUCH smaller */
+  color: rgba(255,255,255,0.8);
+  animation: tickerMove 18s linear infinite;
+}
+
+@keyframes tickerMove {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
