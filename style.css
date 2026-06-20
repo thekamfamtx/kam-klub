@@ -80,7 +80,6 @@ body::before {
 ========================= */
 
 .circle-text {
-  font-size: 42px;
   font-weight: 900;
   color: white;
   text-align: center;
@@ -91,13 +90,13 @@ body::before {
   word-wrap: break-word;
   overflow-wrap: break-word;
 
+  line-height: 1.1;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1.1;
 
-  /* auto scaling for long names */
-  font-size: clamp(18px, 4vw, 42px);
+  padding: 10px;
 }
 
 /* =========================
