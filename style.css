@@ -21,6 +21,16 @@ body {
   position: absolute;
   top: 20px;
 }
+.logo-area {
+  position: absolute;
+  top: 15px;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  filter: drop-shadow(0 0 10px gold);
+}
 
 .logo-placeholder {
   font-size: 28px;
