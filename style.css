@@ -8,30 +8,13 @@ body {
   font-family: Arial, sans-serif;
   color: white;
   overflow: hidden;
+
+  /* clean dark gradient ONLY (no clutter) */
   background: linear-gradient(135deg, #001a33, #990000);
 }
 
 /* =========================
-   BACKGROUND LOGO (WATERMARK)
-========================= */
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 650px;
-  height: 650px;
-  transform: translate(-50%, -50%);
-  background: url("kam-klub-logo.png") no-repeat center;
-  background-size: contain;
-  opacity: 0.05;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* =========================
-   LAYOUT
+   MAIN LAYOUT
 ========================= */
 
 .container {
@@ -42,8 +25,6 @@ body::before {
   align-items: center;
   justify-content: center;
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
 
 /* =========================
@@ -54,49 +35,64 @@ body::before {
   font-size: 24px;
   color: gold;
   margin-bottom: 25px;
-  letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(0,0,0,0.6);
+  letter-spacing: 2px;
 }
 
 /* =========================
-   CIRCLE (MAIN FOCUS)
+   CIRCLE CONTAINER
 ========================= */
 
 .photo-frame {
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   border: 4px solid rgba(255, 215, 0, 0.5);
   background: rgba(0,0,0,0.15);
+
+  position: relative;
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  overflow: hidden;
 }
 
 /* =========================
-   NAME INSIDE CIRCLE (WRAPS + FITS)
+   LOGO (BACKGROUND WATERMARK)
+========================= */
+
+.circle-logo {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+
+  opacity: 0.07;   /* subtle watermark */
+  z-index: 0;
+}
+
+/* =========================
+   MEMBER NAME (TOP LAYER)
 ========================= */
 
 .circle-text {
+  position: relative;
+  z-index: 1;
+
   font-weight: 900;
   color: white;
   text-align: center;
   text-shadow: 0 0 15px rgba(0,0,0,0.9);
 
   width: 85%;
-  white-space: normal;
+  line-height: 1.1;
+
+  /* WRAP + AUTO SIZE SUPPORT */
   word-wrap: break-word;
   overflow-wrap: break-word;
 
-  line-height: 1.1;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 10px;
+  font-size: clamp(20px, 4vw, 44px);
 }
 
 /* =========================
@@ -109,5 +105,3 @@ body::before {
   margin-top: 12px;
   text-shadow: 0 0 10px rgba(0,0,0,0.6);
 }
-
-
