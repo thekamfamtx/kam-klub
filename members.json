@@ -6,7 +6,6 @@
   { "name": "Matt Jones", "level": "Gold" },
   { "name": "Texas Cruiser", "level": "Gold" },
   { "name": "JJ's Adventures", "level": "Gold" },
-  { "name": "Lori Barber", "level": "Gold" },
   { "name": "Dani Dizzle Super Mod", "level": "Gold" },
   { "name": "Cruising Chris M", "level": "Gold" },
   { "name": "Azkhalon", "level": "Gold" },
@@ -14,6 +13,10 @@
   { "name": "Integrated Travel Solutions", "level": "Red" },
   { "name": "Mandi Smith", "level": "Red" },
   { "name": "Tricia Sets Sail", "level": "Red" },
-  { "name": "John ktaf247", "level": "Blue" },
-  { "name": "Embarkation Nation", "level": "Green" }
+  { "name": "John", "level": "Blue" },
+  { "name": "LindaTomanCreates", "level": "Blue" },
+  { "name": "Keshia", "level": "Blue" },
+  { "name": "DREADPOOL", "level": "Green" },
+  { "name": "Embarkation Nation", "level": "Blue" }
+  
 ]
