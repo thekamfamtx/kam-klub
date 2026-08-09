@@ -1,21 +1,18 @@
 [
-  { "name": "Coker Culture", "level": "Gold" },
-  { "name": "Carnival Cruise Addicts", "level": "Gold" },
-  { "name": "Controversial Cruising", "level": "Gold" },
-  { "name": "Lisa's Cruise Adventures", "level": "Gold" },
+  { "name": "Coker Culture", "level": "Platinum" },
+  { "name": "Carnival Cruise Addicts", "level": "Platinum" },
+  { "name": "Controversial Cruising", "level": "Platinum" },
+  { "name": "Lisa's Cruise Adventures", "level": "Platinum" },
+  { "name": "JJ's Adventures", "level": "Platinum" },
+  { "name": "Dani Dizzle Super Mod", "level": "Platinum" },
+  { "name": "Cruising Chris M", "level": "Platinum" },
+  { "name": "Azkhalon", "level": "Platinum" },
+  { "name": "Tricia Sets Sail", "level": "Gold" },
   { "name": "Joe Hupp", "level": "Gold" },
   { "name": "Texas Cruiser", "level": "Gold" },
-  { "name": "JJ's Adventures", "level": "Gold" },
-  { "name": "Dani Dizzle Super Mod", "level": "Gold" },
-  { "name": "Cruising Chris M", "level": "Gold" },
-  { "name": "Azkhalon", "level": "Gold" },
+  { "name": "John", "level": "Red" },
   { "name": "Integrated Travel Solutions", "level": "Red" },
   { "name": "Mandi Smith", "level": "Red" },
-  { "name": "Tricia Sets Sail", "level": "Gold" },
-  { "name": "John", "level": "Blue" },
-  { "name": "LindaTomanCreates", "level": "Blue" },
-  { "name": "Keshia", "level": "Blue" },
-  { "name": "DREADPOOL", "level": "Green" },
-  { "name": "Embarkation Nation", "level": "Blue" }
+  { "name": "Embarkation Nation", "level": "Red" }
   
 ]
